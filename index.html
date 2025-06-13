@@ -1,13 +1,27 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/4geeks.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello Rigo with Vanilla.js</title>
+    <title>React Traffic Light</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- React + ReactDOM (17.x so we can use ReactDOM.render) -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+    ></script>
+    <!-- Babel so we can write JSX in a plain script tag -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   </head>
+
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/js/main.jsx"></script>
+    <div id="app"></div>
+
+    <!-- Our React code -->
+    <script type="text/babel" src="traffic-light.jsx"></script>
   </body>
 </html>
