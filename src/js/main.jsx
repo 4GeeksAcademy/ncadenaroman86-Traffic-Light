@@ -1,25 +1,25 @@
-import React, { useState } from "react";
-import "./TrafficLight.css";
+const { useState } = React;
 
-const TrafficLight = () => {
-    const [selectedColor, setSelectedColor] = useState("red");
+function TrafficLight() {
+  // single piece of state that tracks which light is ON
+  const [color, setColor] = useState("red");
 
-    return (
-        <div className="traffic-light">
-            <div
-                className={`light red ${selectedColor === "red" ? "selected" : ""}`}
-                onClick={() => setSelectedColor("red")}
-            ></div>
-            <div
-                className={`light yellow ${selectedColor === "yellow" ? "selected" : ""}`}
-                onClick={() => setSelectedColor("yellow")}
-            ></div>
-            <div
-                className={`light green ${selectedColor === "green" ? "selected" : ""}`}
-                onClick={() => setSelectedColor("green")}
-            ></div>
-        </div>
-    );
-};
+  // helper to render each lamp
+  const Lamp = (name) => (
+    <span
+      className={`bulb ${name} ${color === name ? "on" : ""}`}
+      onClick={() => setColor(name)}
+    />
+  );
 
-export default TrafficLight;
+  return (
+    <div className="traffic-light">
+      {Lamp("red")}
+      {Lamp("yellow")}
+      {Lamp("green")}
+    </div>
+  );
+}
+
+// Mount into the DOM ⤵
+ReactDOM.render(<TrafficLight />, document.querySelector("#app"));
